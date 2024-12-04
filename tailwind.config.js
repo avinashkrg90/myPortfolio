@@ -10,6 +10,7 @@ export default {
         gelasio: ["'Gelasio'", "serif"],
         NotoSans: ["Noto Sans", "sans-serif"],
         jost: ["Jost", "sans-serif"],
+        customCursiveFont : ['customCursiveFont', 'sans-serif'],
       },
   },
   },
