@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import HeroImage from '../components/HeroImage';
 import TopNavbar from '../components/TopNavbar';
+import TextRotor from '../components/TextRotor';
 
 gsap.registerPlugin(useGSAP);
 
@@ -78,6 +79,7 @@ const HeroPage = () => {
       </div>
 
       <TopNavbar />
+      <TextRotor />
 
       <HeroImage />
 
