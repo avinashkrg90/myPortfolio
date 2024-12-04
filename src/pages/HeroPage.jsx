@@ -5,6 +5,7 @@ import { useGSAP } from '@gsap/react';
 import HeroImage from '../components/HeroImage';
 import TopNavbar from '../components/TopNavbar';
 import TextRotor from '../components/TextRotor';
+import DesignationTypewriter from '../components/DesignationTypewriter';
 
 gsap.registerPlugin(useGSAP);
 
@@ -79,8 +80,9 @@ const HeroPage = () => {
       </div>
 
       <TopNavbar />
-      <TextRotor />
+      {/* <TextRotor /> */}
 
+      <DesignationTypewriter />
       <HeroImage />
 
       <div className='overflow-hidden w-[100vw] h-[100vh] absolute inset-0'>

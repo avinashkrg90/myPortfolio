@@ -1,7 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
 import gsap from "gsap";
+import NavExtContent from './NavExtContent';
 
 const TopNavbar = () => {
+
+    const [hoverMenu, setHoverMenu] = useState('');
 
     const navBgRef = useRef();
     const navListRef = useRef();
@@ -12,9 +15,9 @@ const TopNavbar = () => {
             right: "-35vw", duration: 1, ease: "elastic.out(1,0.6)",
         }),
 
-        gsap.to(navListRef.current, {
-            color: "rgb(234, 232, 227)", duration: 0.3, ease: "power4.out",
-        })
+            gsap.to(navListRef.current, {
+                color: "rgb(234, 232, 227)", duration: 0.3, ease: "power4.out",
+            })
     }
 
     const handleMouseLeavefromNav = (e) => {
@@ -35,21 +38,27 @@ const TopNavbar = () => {
         }
 
     }
-
+    
     return (
-        <div className='absolute top-[2vh] right-[5vw] z-[100]'>
-            <div ref={navBgRef} onMouseLeave={handleMouseLeavefromNav} className='bg-black absolute rotate-45 w-[80vw] h-[120vh] -top-[25vh] -right-[90vw] z-[0]'>
-                <div className='text-sky-500 text-5xl uppercase absolute top-0 z-[105] -rotate-45'>experiencefkldsnflkjasdklfnklsadfnlasdnfklsadnflknfkl</div>
+        <div className='fixed inset-0 z-[101] overflow-hidden'>
+            <div className='w-full h-full'>
+                <div ref={navBgRef} onMouseLeave={handleMouseLeavefromNav} className='absolute bg-black rotate-45 w-[80vw] h-[120vh] -top-[25vh] -right-[90vw] z-[0]'>
+
+                    
+                    <NavExtContent hoverMenu={hoverMenu}/>
+                </div>
+                
+
+                <ul ref={navListRef} onMouseEnter={handleHoverOnNav} className='absolute right-12 text-black flex justify-end gap-5 z-[104] p-3 mt-0'>
+                    <li className='cursor-pointer' onMouseOver={() => setHoverMenu("about")}>about</li>
+                    <li className='cursor-pointer' onMouseOver={() => setHoverMenu("projects")}>projects</li>
+                    <li className='cursor-pointer' onMouseOver={() => setHoverMenu("skills")}>skills</li>
+                    <li className='cursor-pointer' onMouseOver={() => setHoverMenu("experience")}>experience</li>
+                    <li className='cursor-pointer' onMouseOver={() => setHoverMenu("achievements")}>achievements</li>
+                    <li className='cursor-pointer' onMouseOver={() => setHoverMenu("contact")}>contact</li>
+                </ul>
             </div>
 
-            <ul ref={navListRef} onMouseEnter={handleHoverOnNav} className='text-black flex gap-5 z-[104] absolute right-0 p-2'>
-                <li className='cursor-pointer'>about</li>
-                <li className='cursor-pointer'>projects</li>
-                <li className='cursor-pointer'>skills</li>
-                <li className='cursor-pointer'>experience</li>
-                <li className='cursor-pointer'>achievements</li>
-                <li className='cursor-pointer'>contact</li>
-            </ul>
 
         </div>
     )
